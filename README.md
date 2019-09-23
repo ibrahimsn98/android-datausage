@@ -1,4 +1,4 @@
-# Android Data Usage Manager
+# Android Data Usage
 An Android library to monitor cellular and wifi data usage easily
 
 ## Usage
@@ -12,19 +12,19 @@ An Android library to monitor cellular and wifi data usage easily
 ```
 
 ```kotlin
-        val networkStatsManager = getSystemService(Context.NETWORK_STATS_SERVICE) as NetworkStatsManager
-        val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+val networkStatsManager = getSystemService(Context.NETWORK_STATS_SERVICE) as NetworkStatsManager
+val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 
-        val manager = DataUsageManager(networkStatsManager, telephonyManager.subscriberId)
+val manager = DataUsageManager(networkStatsManager, telephonyManager.subscriberId)
 
-        // Monitor single interval
-        manager.getUsage(Interval.today, NetworkType.MOBILE)
+// Monitor single interval
+manager.getUsage(Interval.today, NetworkType.MOBILE)
 
-        // Monitor multiple interval
-        manager.getMultiUsage(listOf(Interval.month, Interval.last30days), NetworkType.WIFI)
+// Monitor multiple interval
+manager.getMultiUsage(listOf(Interval.month, Interval.last30days), NetworkType.WIFI)
 
-        // Observe realtime usage
-        manager.getRealtimeUsage(NetworkType.WIFI).subscribe()
+// Observe realtime usage
+manager.getRealtimeUsage(NetworkType.WIFI).subscribe()
 ```
 
 License
